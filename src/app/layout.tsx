@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -21,7 +23,21 @@ export default function RootLayout({
 				/>
 			</head>
 
-			<body className={`antialiased font-pretendard`}>{children}</body>
+			<body className={`antialiased font-pretendard flex flex-col min-h-screen`}>
+				<header className='flex flex-row gap-4 justify-between items-center px-16 py-4 bg-white dark:bg-black sticky top-0 z-10 shadow-md shadow-zinc-100 dark:shadow-zinc-900'>
+					<Link href='/'><img src="/icon.svg" alt="logo" className='w-10 h-10' /></Link>
+					<div>
+						<Button variant="ghost" asChild className="text-lg"><Link href='/posts'>POSTS</Link></Button>
+						<Button variant="ghost" asChild className="text-lg"><Link href='/resume'>RESUME</Link></Button></div>
+				</header>
+
+				<main className='flex-1'>{children}</main>
+
+				<footer className='flex flex-row gap-4 justify-between px-16 py-4 bg-white dark:bg-black'>
+					<p>© 2026 Jina Cheon. All rights reserved.</p>
+				</footer>
+			</body>
+
 		</html>
 	);
 }
