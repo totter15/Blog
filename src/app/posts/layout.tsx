@@ -1,19 +1,18 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-	title: 'Posts',
-	description: 'Posts',
+    title: 'Posts',
+    description: 'Posts',
 };
 
 export default function PostsLayout({
-	children,
+    children,
 }: Readonly<{
-	children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-	return (
-		<div>
-			<h1>Posts</h1>
-			{children}
-		</div>
-	);
+    return (
+        <div className="max-w-6xl mx-auto px-4 py-12">
+            {children}
+        </div>
+    );
 }
