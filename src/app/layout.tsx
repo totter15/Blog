@@ -24,11 +24,11 @@ export default function RootLayout({
 			</head>
 
 			<body className={`antialiased font-pretendard flex flex-col min-h-screen`}>
-				<header className='flex flex-row gap-4 justify-between items-center px-16 py-4 bg-white dark:bg-black sticky top-0 z-10 shadow-md shadow-zinc-100 dark:shadow-zinc-900'>
+				<header className='flex flex-row gap-4 justify-between items-center px-16 py-4 bg-white dark:bg-black sticky top-0 z-10'>
 					<Link href='/'><img src="/icon.svg" alt="logo" className='w-10 h-10' /></Link>
 					<div>
-						<Button variant="ghost" asChild className="text-lg"><Link href='/posts'>POSTS</Link></Button>
-						<Button variant="ghost" asChild className="text-lg"><Link href='/resume'>RESUME</Link></Button></div>
+						<Button variant="link" asChild className="text-md"><Link href='/posts'>POSTS</Link></Button>
+						<Button variant="link" asChild className="text-md"><Link href='/resume'>RESUME</Link></Button></div>
 				</header>
 
 				<main className='flex-1'>{children}</main>
