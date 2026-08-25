@@ -27,13 +27,13 @@ export default async function PostDetail({
   const { html, headings } = extractToc(renderMarkdown(post.content));
 
   return (
-    <div className="grid grid-cols-1 gap-[60px] lg:grid-cols-[1000px_300px]">
-      <article className="w-full min-w-0">
+    <div className="max-w-[1300px] mx-auto grid grid-cols-1 gap-[60px] lg:grid-cols-[1fr_300px]">
+      <article className="w-full  min-w-0">
         <RegisterToc title={post.title} headings={headings} />
 
         <Link
           href="/posts"
-          className="mb-8 inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+          className="mb-4 mb:mb-8 inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>목록으로</span>
@@ -41,31 +41,29 @@ export default async function PostDetail({
 
         <PostThumbnail className="mb-8" />
 
-        <header className="mb-8 pb-8 border-b border-border">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+        <header className="mb-8 pb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-1 md:mb-4 leading-tight">
             {post.title}
           </h1>
           {post.description && (
-            <p className="text-xl text-muted-foreground mb-6">
+            <p className="text-xl font-medium text-muted-foreground mb-3 md:mb-6">
               {post.description}
             </p>
           )}
-          <time
-            dateTime={post.date}
-            className="mb-3 block text-sm text-muted-foreground"
-          >
-            {new Date(post.date).toLocaleDateString('ko-KR', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
-          </time>
-          <div className="flex flex-wrap gap-2">
-            {post.tags.map((tag) => (
-              <Tag key={tag} selected>
-                {tag}
-              </Tag>
-            ))}
+
+          <div className="flex flex-col  gap-3">
+            <time dateTime={post.date} className="block text-sm font-semibold">
+              {new Date(post.date).toLocaleDateString('ko-KR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </time>
+            <div className="flex flex-wrap gap-2">
+              {post.tags.map((tag) => (
+                <Tag key={tag}>{tag}</Tag>
+              ))}
+            </div>
           </div>
         </header>
 
