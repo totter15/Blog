@@ -1,42 +1,55 @@
-import PostItem from '@/components/post/post-item';
-import { getPosts } from '@/lib/cms/service';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
-export default async function Posts() {
-	const posts = await getPosts();
+import PostCard from '@/components/post/post-card';
+import { TagSidebar } from '@/components/post/tag-sidebar';
+import { getPosts } from '@/lib/cms/service';
 
-	return (
-		<div >
-			{/* 헤더 */}
-			<div className="mb-12">
-				<h1 className="text-4xl font-bold mb-3">POSTS</h1>
-				<p className="text-gray-600 dark:text-gray-400">
-					총 {posts.length}개의 글
-				</p>
-			</div>
+export default async function Posts({
+  searchParams,
+}: {
+  searchParams: Promise<{ tag?: string }>;
+}) {
+  const { tag } = await searchParams;
+  const posts = await getPosts();
+  const tags = Array.from(new Set(posts.flatMap((post) => post.tags))).sort();
+  const filteredPosts = tag
+    ? posts.filter((post) => post.tags.includes(tag))
+    : posts;
 
-			{/* 포스트 목록 */}
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-				{posts.map((post) => (
-					<Link
-						key={post.slug}
-						href={`/posts/${post.slug}`}
-						className="block group"
-					>
-						<PostItem post={post} />
+  return (
+    <div className="grid grid-cols-1 grid-cols-[100px_1fr] gap-[10px] md:gap-[40px] lg:grid-cols-[300px_1fr]">
+      <Suspense fallback={null}>
+        <TagSidebar tags={tags} />
+      </Suspense>
 
-					</Link>
-				))}
-			</div>
+      <div className="w-full min-w-0">
+        <div className="mb-4 sm:mb-8">
+          <h1 className="text-2xl font-bold lg:mb-2 lg:text-4xl">POST</h1>
+          <p className="text-muted-foreground">
+            총 {filteredPosts.length}개의 글
+          </p>
+        </div>
 
-			{/* 포스트가 없을 때 */}
-			{posts.length === 0 && (
-				<div className="text-center py-20">
-					<p className="text-gray-500 dark:text-gray-400 text-lg">
-						아직 작성된 글이 없습니다.
-					</p>
-				</div>
-			)}
-		</div>
-	);
+        <div className="flex flex-wrap justify-start gap-[12px]">
+          {filteredPosts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/posts/${post.slug}`}
+              className="block group w-full  md:w-[calc(50%-7.5px)] lg:min-w-[350px] lg:w-[calc(33.333%-10px)]"
+            >
+              <PostCard post={post} />
+            </Link>
+          ))}
+        </div>
+        {filteredPosts.length === 0 && (
+          <div className="text-center py-20">
+            <p className="text-muted-foreground text-lg">
+              아직 작성된 글이 없습니다.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }

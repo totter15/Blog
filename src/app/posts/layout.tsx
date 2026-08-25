@@ -1,18 +1,22 @@
 import type { Metadata } from 'next';
 
+import { TocProvider } from '@/components/post/toc-context';
+
 export const metadata: Metadata = {
-    title: 'Posts',
-    description: 'Posts',
+  title: 'Posts',
+  description: 'Posts',
 };
 
 export default function PostsLayout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
-        <div className="max-w-6xl mx-auto px-4 py-12">
-            {children}
-        </div>
-    );
+  return (
+    <TocProvider>
+      <div className="flex justify-center pb-12">
+        <div className="w-full max-w-[1600px]">{children}</div>
+      </div>
+    </TocProvider>
+  );
 }
