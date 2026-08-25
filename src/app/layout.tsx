@@ -32,7 +32,9 @@ export default function RootLayout({
       <body className="antialiased font-pretendard flex flex-col min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
-          <main className="flex flex-1 flex-col">{children}</main>
+          <main className="flex flex-1 flex-col px-5 pt-10 md:px-20 md:py-18">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>

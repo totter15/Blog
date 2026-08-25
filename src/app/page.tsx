@@ -16,7 +16,7 @@ const SOCIAL_LINKS = [
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col px-6 py-10 pb-[6vh] sm:px-10 sm:py-14 sm:pb-[8vh] md:px-20 md:py-18 md:pb-[10vh]">
+    <div className="flex flex-1 flex-col pb-[6vh] sm:pb-[8vh] md:pb-[10vh]">
       <div className="flex flex-1 flex-col justify-center">
         <h1 className="-mt-6 text-[clamp(1.75rem,8vw,3.5rem)] font-medium leading-[1.15] tracking-tight md:-mt-12 md:text-[clamp(2rem,3vw_+_4vh,7rem)]">
           안녕하세요
