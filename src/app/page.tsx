@@ -16,9 +16,9 @@ const SOCIAL_LINKS = [
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col px-20 py-18 pb-[12vh]">
+    <div className="flex flex-1 flex-col px-6 py-10 pb-[6vh] sm:px-10 sm:py-14 sm:pb-[8vh] md:px-20 md:py-18 md:pb-[10vh]">
       <div className="flex flex-1 flex-col justify-center">
-        <h1 className="-mt-12 text-[clamp(2rem,8vh,7rem)] font-semibold leading-[1.15] tracking-tight">
+        <h1 className="-mt-6 text-[clamp(1.75rem,8vw,3.5rem)] font-medium leading-[1.15] tracking-tight md:-mt-12 md:text-[clamp(2rem,3vw_+_4vh,7rem)]">
           안녕하세요
           <br />
           프론트엔드 개발자
@@ -27,8 +27,8 @@ export default function Home() {
         </h1>
       </div>
 
-      <div className="flex flex-row items-end justify-between">
-        <nav className="flex flex-col gap-3 text-[clamp(1.2rem,4vh,3rem)] font-medium leading-tight">
+      <div className="flex  gap-8 flex-row items-end justify-between sm:gap-0">
+        <nav className="flex flex-col gap-2 text-[clamp(1.1rem,5.5vw,1.75rem)] font-medium leading-tight sm:gap-3 md:text-[clamp(1.2rem,3.5vh,3rem)]">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -40,7 +40,7 @@ export default function Home() {
           ))}
         </nav>
 
-        <div className="flex flex-col items-end gap-1 text-[clamp(1rem,2.4vh,2rem)] font-semibold">
+        <div className="flex flex-col gap-1 text-[clamp(0.9rem,3.5vw,1.25rem)] font-semibold items-end md:text-[clamp(1rem,2.4vh,2rem)]">
           {SOCIAL_LINKS.map((link) => (
             <a
               key={link.href}
