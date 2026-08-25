@@ -8,6 +8,14 @@
 	--color-foreground: var(--foreground);
 	--font-sans: var(--font-geist-sans);
 	--font-mono: var(--font-geist-mono);
+	--font-pretendard: var(--font-pretendard-family);
+	--color-brand-primary: var(--brand-primary);
+	--color-brand-grey: var(--brand-grey);
+	--color-brand-lightgrey: var(--brand-lightgrey);
+	--color-brand-black: var(--brand-black);
+	--color-brand-blue: var(--brand-blue);
+	--color-brand-blue-text: var(--brand-blue-text);
+	--color-brand-green: var(--brand-green);
 	--color-sidebar-ring: var(--sidebar-ring);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -48,24 +56,32 @@
 
 :root {
 	--radius: 0.625rem;
-	--background: oklch(1 0 0);
-	--foreground: oklch(0.145 0 0);
-	--card: oklch(1 0 0);
-	--card-foreground: oklch(0.145 0 0);
-	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.145 0 0);
-	--primary: oklch(0.205 0 0);
-	--primary-foreground: oklch(0.985 0 0);
-	--secondary: oklch(0.97 0 0);
-	--secondary-foreground: oklch(0.205 0 0);
-	--muted: oklch(0.97 0 0);
-	--muted-foreground: oklch(0.556 0 0);
-	--accent: oklch(0.97 0 0);
-	--accent-foreground: oklch(0.205 0 0);
+	--font-pretendard-family: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+	--brand-primary: #2c2c2c;
+	--brand-grey: #5a5a5a;
+	--brand-lightgrey: #f5f5f5;
+	--brand-black: #1b1b1b;
+	--brand-blue: #c3f3ff;
+	--brand-blue-text: #00a2c2;
+	--brand-green: #98ffbf;
+	--background: #ffffff;
+	--foreground: var(--brand-black);
+	--card: #ffffff;
+	--card-foreground: var(--brand-black);
+	--popover: #ffffff;
+	--popover-foreground: var(--brand-black);
+	--primary: var(--brand-primary);
+	--primary-foreground: #ffffff;
+	--secondary: var(--brand-lightgrey);
+	--secondary-foreground: var(--brand-primary);
+	--muted: var(--brand-lightgrey);
+	--muted-foreground: var(--brand-grey);
+	--accent: var(--brand-lightgrey);
+	--accent-foreground: var(--brand-primary);
 	--destructive: oklch(0.577 0.245 27.325);
-	--border: oklch(0.922 0 0);
-	--input: oklch(0.922 0 0);
-	--ring: oklch(0.708 0 0);
+	--border: var(--brand-lightgrey);
+	--input: var(--brand-lightgrey);
+	--ring: var(--brand-blue-text);
 	--chart-1: oklch(0.646 0.222 41.116);
 	--chart-2: oklch(0.6 0.118 184.704);
 	--chart-3: oklch(0.398 0.07 227.392);
@@ -82,24 +98,24 @@
 }
 
 .dark {
-	--background: oklch(0.145 0 0);
-	--foreground: oklch(0.985 0 0);
-	--card: oklch(0.205 0 0);
-	--card-foreground: oklch(0.985 0 0);
-	--popover: oklch(0.205 0 0);
-	--popover-foreground: oklch(0.985 0 0);
-	--primary: oklch(0.922 0 0);
-	--primary-foreground: oklch(0.205 0 0);
-	--secondary: oklch(0.269 0 0);
-	--secondary-foreground: oklch(0.985 0 0);
-	--muted: oklch(0.269 0 0);
-	--muted-foreground: oklch(0.708 0 0);
-	--accent: oklch(0.269 0 0);
-	--accent-foreground: oklch(0.985 0 0);
+	--background: var(--brand-black);
+	--foreground: var(--brand-lightgrey);
+	--card: var(--brand-primary);
+	--card-foreground: var(--brand-lightgrey);
+	--popover: var(--brand-primary);
+	--popover-foreground: var(--brand-lightgrey);
+	--primary: var(--brand-lightgrey);
+	--primary-foreground: var(--brand-black);
+	--secondary: var(--brand-primary);
+	--secondary-foreground: var(--brand-lightgrey);
+	--muted: var(--brand-primary);
+	--muted-foreground: var(--brand-grey);
+	--accent: var(--brand-primary);
+	--accent-foreground: var(--brand-lightgrey);
 	--destructive: oklch(0.704 0.191 22.216);
-	--border: oklch(1 0 0 / 10%);
-	--input: oklch(1 0 0 / 15%);
-	--ring: oklch(0.556 0 0);
+	--border: color-mix(in oklab, var(--brand-lightgrey) 15%, transparent);
+	--input: color-mix(in oklab, var(--brand-lightgrey) 15%, transparent);
+	--ring: var(--brand-blue-text);
 	--chart-1: oklch(0.488 0.243 264.376);
 	--chart-2: oklch(0.696 0.17 162.48);
 	--chart-3: oklch(0.769 0.188 70.08);
@@ -137,11 +153,11 @@
   }
 
   .prose h2 {
-    @apply text-3xl font-bold mt-8 mb-4 text-gray-900 dark:text-gray-100;
+    @apply text-3xl font-bold mt-8 mb-4 text-gray-900 dark:text-gray-100 scroll-mt-24;
   }
 
   .prose h3 {
-    @apply text-2xl font-bold mt-6 mb-3 text-gray-900 dark:text-gray-100;
+    @apply text-2xl font-bold mt-6 mb-3 text-gray-900 dark:text-gray-100 scroll-mt-24;
   }
 
   .prose h4 {
@@ -161,7 +177,7 @@
   }
 
   .prose a {
-    @apply text-blue-600 dark:text-blue-400 no-underline hover:underline;
+    @apply text-brand-blue-text no-underline hover:underline;
   }
 
   .prose strong {
