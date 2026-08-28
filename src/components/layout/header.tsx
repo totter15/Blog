@@ -28,7 +28,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-10 flex flex-row items-center justify-between gap-4 px-5 py-2 transition-[background-color,box-shadow,border-color] duration-200 md:px-20 md:py-5 ',
+        'sticky top-0 z-10 flex flex-row items-center justify-between gap-4 px-5 py-2 transition-[background-color,box-shadow,border-color] duration-200 md:px-20 md:py-4',
         scrolled
           ? 'border-b border-black/[0.06] bg-background/60 shadow-[0_4px_16px_rgba(0,0,0,0.09)] backdrop-blur-md dark:border-white/[0.06]'
           : 'border-b border-transparent bg-background'
@@ -40,7 +40,7 @@ export function Header() {
           alt="JINA HOME"
           width={76}
           height={43}
-          className="h-auto w-10 sm:w-16 md:w-[76px]"
+          className="h-auto w-10 sm:w-16 md:w-[60px]"
           priority
         />
       </Link>

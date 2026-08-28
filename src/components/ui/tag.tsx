@@ -19,7 +19,7 @@ function Tag({
       data-slot="tag"
       data-selected={selected}
       className={cn(
-        'inline-flex items-center justify-center rounded-full px-2 py-1 text-[12px] sm:text-sm font-medium whitespace-nowrap transition-colors md:px-3 md:py-2 md:text-base',
+        'inline-flex items-center justify-center rounded-full px-2.5 py-1.5 text-[12px] sm:text-sm font-medium whitespace-nowrap transition-colors',
         selected
           ? 'bg-tag-selected text-tag-selected-foreground font-semibold'
           : 'bg-tag text-tag-foreground hover:bg-tag-hover hover:text-tag-hover-foreground',

@@ -27,8 +27,8 @@ export default async function PostDetail({
   const { html, headings } = extractToc(renderMarkdown(post.content));
 
   return (
-    <div className="max-w-[1300px] mx-auto grid grid-cols-1 gap-[60px] lg:grid-cols-[1fr_300px]">
-      <article className="w-full  min-w-0">
+    <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_300px]">
+      <article className="w-full max-w-[800px]  min-w-0">
         <RegisterToc title={post.title} headings={headings} />
 
         <Link
@@ -42,7 +42,7 @@ export default async function PostDetail({
         <PostThumbnail className="mb-8" />
 
         <header className="mb-8 pb-8">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-1 md:mb-4 leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-1 md:mb-4 leading-tight">
             {post.title}
           </h1>
           {post.description && (
@@ -61,7 +61,9 @@ export default async function PostDetail({
             </time>
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
-                <Tag key={tag}>{tag}</Tag>
+                <Tag key={tag} asChild>
+                  <Link href={`/posts?tag=${tag}`}>{tag}</Link>
+                </Tag>
               ))}
             </div>
           </div>

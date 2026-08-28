@@ -16,9 +16,9 @@ const SOCIAL_LINKS = [
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col pb-[6vh] sm:pb-[8vh] md:pb-[10vh]">
+    <div className="flex flex-1 flex-col pb-[4vh]">
       <div className="flex flex-1 flex-col justify-center">
-        <h1 className="-mt-6 text-[clamp(1.75rem,8vw,3.5rem)] font-medium leading-[1.15] tracking-tight md:-mt-12 md:text-[clamp(2rem,3vw_+_4vh,7rem)]">
+        <h1 className="-mt-6 text-[clamp(1.75rem,8vw,3.5rem)] font-medium leading-[1.15] tracking-tight md:-mt-12 md:text-[clamp(1.5rem,3vw_+_4vh,6rem)]">
           안녕하세요
           <br />
           프론트엔드 개발자

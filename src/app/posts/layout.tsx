@@ -15,7 +15,7 @@ export default function PostsLayout({
   return (
     <TocProvider>
       <div className="flex justify-center pb-12">
-        <div className="w-full max-w-[1600px]">{children}</div>
+        <div className="w-full max-w-[1400px]">{children}</div>
       </div>
     </TocProvider>
   );
